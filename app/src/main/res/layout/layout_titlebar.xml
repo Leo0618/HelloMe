@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    android:id="@+id/layout_titlebar_root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="?actionBarSize"
+    android:background="@color/white"
+    android:clipToPadding="false"
+    android:fitsSystemWindows="true">
+
+    <ImageView
+        android:id="@+id/iv_title_left_1"
+        android:layout_width="?actionBarSize"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:padding="10dp"
+        android:src="@drawable/icon_back"
+        tools:ignore="RtlHardcoded,RtlSymmetry"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:lines="1"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"/>
+
+    <!--用于增加自定义视图进入标题栏中央位置-->
+    <LinearLayout
+        android:id="@+id/layout_title_center_custom_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:orientation="vertical"/>
+
+    <ImageView
+        android:id="@+id/iv_title_right_1"
+        android:layout_width="?actionBarSize"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:contentDescription="@null"/>
+
+    <View
+        android:id="@+id/title_devider_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/divider_line"/>
+</RelativeLayout>
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_primary">#3F51B5</color>
+    <color name="bg_primary_deep">#303F9F</color>
+    <color name="bg_window">#F3F6F5</color>
+    <color name="bg_window_deep">#EAEDED</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#ffffffff</color>
+    <color name="black">#000000</color>
+    <color name="black_translucent">#B2000000</color>
+    <color name="red">#E50011</color>
+    <color name="red_light">#EF534E</color>
+    <color name="red_deep">#D3433E</color>
+    <color name="green">#ff00ff00</color>
+    <color name="green_light">#3A7E33</color>
+    <color name="blue">#ff0000ff</color>
+    <color name="orange">#FF9900</color>
+    <color name="orange_light">#FF9732</color>
+    <color name="orange_deep">#C96200</color>
+    <color name="gray">#BCBCBC</color>
+    <color name="purple">#7068e2</color>
+    <color name="purple_deep">#5A52C6</color>
+
+    <color name="statusbar_titlebar">#fdfdfd</color>
+    <color name="titlebar_divider_line">#E8E8E8</color>
+    <color name="divider_line">#e9e6ea</color>
+    <color name="text_333">#333333</color>
+    <color name="text_ccc">#cccccc</color>
+    <color name="text_999">#999999</color>
+    <color name="text_666">#666666</color>
+    <color name="text_888">#888888</color>
+    <color name="text_555">#555555</color>
+
+</resources>

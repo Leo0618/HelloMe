@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">HelloMe</string>
+    <!--common-->
+    <string name="temp">--</string>
+    <string name="cancle">取消</string>
+    <string name="sure">确定</string>
+    <string name="ok">完成</string>
+    <string name="reset">重置</string>
+    <string name="submmit">提交</string>
+    <string name="hint_exit_app">再按一次退出</string>
+    <string name="hint_failed">数据载入失败</string>
+    <string name="hint_no_data">暂无数据</string>
+    <string name="hint_data_loading">数据载入中</string>
+    <string name="hint_permission_splash">在使用APP之前，请您允许必要的权限</string>
+    <string name="hint_permission_share">在使用分享功能前，请您允许必要的权限</string>
+    <string name="hint_see_after_login">登录可见</string>
+    <string name="hint_see_after_risktest">评测可见</string>
+    <string name="hint_input_search">请输入搜索关键字</string>
+    <string name="hint_input_question">请输入问题</string>
+    <string name="hint_no_more_data">没有更多数据</string>
+    <string name="hint_action_over">操作完成</string>
+    <string name="btn_see_detail">查看详情</string>
+    <string name="btn_see_more">查看更多</string>
+    <string name="btn_close">关&#160;&#160;&#160;&#160;闭</string>
+</resources>
