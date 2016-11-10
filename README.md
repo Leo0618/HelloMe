@@ -1,2 +1,4 @@
 # HelloMe
-a app for some todo task
+an app for some todo task
+
+##some utils and framework will be put in
