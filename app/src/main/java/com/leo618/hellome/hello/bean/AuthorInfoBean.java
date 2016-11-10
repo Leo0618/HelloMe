@@ -12,45 +12,40 @@ import com.leo618.hellome.libcore.base.BaseBean;
 @SuppressWarnings("ALL")
 public class AuthorInfoBean extends BaseBean {
 
-    //{"status":0,"msg":"","data":{"author":"leo","phone":"18820285271","qq":"619827587"}}
+    private String token;
+    private String userid;
+    private String nickname;
 
-    private DataEntity data;
-
-    public DataEntity getData() {
-        return data;
+    public String getToken() {
+        return token;
     }
 
-    public void setData(DataEntity data) {
-        this.data = data;
+    public void setToken(String token) {
+        this.token = token;
     }
 
-    public static class DataEntity {
-        private String author;
-        private String phone;
-        private String qq;
+    public String getUserid() {
+        return userid;
+    }
 
-        public String getAuthor() {
-            return author;
-        }
+    public void setUserid(String userid) {
+        this.userid = userid;
+    }
 
-        public void setAuthor(String author) {
-            this.author = author;
-        }
+    public String getNickname() {
+        return nickname;
+    }
 
-        public String getPhone() {
-            return phone;
-        }
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
 
-        public void setPhone(String phone) {
-            this.phone = phone;
-        }
-
-        public String getQq() {
-            return qq;
-        }
-
-        public void setQq(String qq) {
-            this.qq = qq;
-        }
+    @Override
+    public String toString() {
+        return "AuthorInfoBean{" +
+                "token='" + token + '\'' +
+                ", userid='" + userid + '\'' +
+                ", nickname='" + nickname + '\'' +
+                '}';
     }
 }

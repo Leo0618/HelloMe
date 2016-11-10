@@ -388,7 +388,7 @@ public class NetManager {
                     // go to login here
                 } else {
                     Logg.e(TAG, "onSuccess : status = " + baseBean.getStatus());
-                    callBack.onFailure(new RuntimeException(baseBean.getMsg()));
+                    callBack.onFailure(new RuntimeException(baseBean.getRet_msg()));
                 }
             }
             removeRequestCallback(tag);

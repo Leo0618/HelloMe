@@ -10,7 +10,7 @@ package com.leo618.hellome.libcore.base;
 public class BaseBean {
     protected int status;
 
-    protected String msg;
+    protected String ret_msg;
 
     public int getStatus() {
         return status;
@@ -20,11 +20,11 @@ public class BaseBean {
         this.status = status;
     }
 
-    public String getMsg() {
-        return msg;
+    public String getRet_msg() {
+        return ret_msg;
     }
 
-    public void setMsg(String msg) {
-        this.msg = msg;
+    public void setRet_msg(String ret_msg) {
+        this.ret_msg = ret_msg;
     }
 }

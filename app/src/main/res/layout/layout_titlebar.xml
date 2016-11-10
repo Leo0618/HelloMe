@@ -50,7 +50,8 @@
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:contentDescription="@null"/>
+        android:contentDescription="@null"
+        android:padding="10dp"/>
 
     <View
         android:id="@+id/title_devider_line"
