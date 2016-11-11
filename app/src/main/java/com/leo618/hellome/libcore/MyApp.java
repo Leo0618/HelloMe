@@ -2,13 +2,14 @@ package com.leo618.hellome.libcore;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.Context;
 import android.os.Looper;
+import android.support.multidex.MultiDex;
 
 import com.leo618.hellome.libcore.manager.net.OkHttpClientWrap;
 
 import java.lang.ref.WeakReference;
 import java.util.Stack;
-
 
 
 /**
@@ -42,6 +43,11 @@ public class MyApp extends Application {
         new LoadInitDataTask().execute((Void) null);// 异步加载初始数据
     }
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
 
     /** 使用异步加载初始配置数据 */
     private class LoadInitDataTask extends android.os.AsyncTask<Void, Void, Boolean> {

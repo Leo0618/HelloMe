@@ -69,9 +69,10 @@ public class MainActivity extends BaseActivity {
 
                 Logg.e(TAG, "info:" + bean.toString());
 
-                String msg = "autor:leo" + "\n"
+                String msg = "author:leo" + "\n"
                         + "phone:18820285271" + "\n"
-                        + "QQ:619827587";
+                        + "QQ:619827587" + "\n"
+                        + "netMsg:" + bean.getNickname();
 
                 new AlertDialog.Builder(MainActivity.this)
                         .setTitle("作者信息")

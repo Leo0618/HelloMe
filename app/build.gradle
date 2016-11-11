@@ -1,19 +1,67 @@
 apply plugin: 'com.android.application'
 
+def javaVersion = JavaVersion.VERSION_1_7
+
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.0"
+
+    compileOptions {
+        sourceCompatibility javaVersion
+        targetCompatibility javaVersion
+    }
+
+    dexOptions {
+        jumboMode = true
+    }
+
+    signingConfigs {
+        release {
+            try {
+                storeFile file("./keystore/leo.keystore")
+                keyAlias 'leo'
+                keyPassword 'LEO~1234'
+                storePassword 'LEO~123'
+            } catch (ex) {
+                throw new InvalidUserDataException(ex.toString())
+            }
+        }
+
+        debug {
+            try {
+                storeFile file("./keystore/leo.keystore")
+                keyAlias 'leo'
+                keyPassword 'LEO~1234'
+                storePassword 'LEO~123'
+            } catch (ex) {
+                throw new InvalidUserDataException(ex.toString())
+            }
+        }
+    }
+
     defaultConfig {
         applicationId "com.leo618.hellome"
         minSdkVersion 16
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
         }
     }
 }
@@ -21,6 +69,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:24.0.0'
+    compile "com.android.support:multidex:1.0.1"
     compile 'com.squareup.okhttp:okhttp:2.7.5'
     compile 'com.squareup.okio:okio:1.8.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
