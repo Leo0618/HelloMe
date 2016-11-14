@@ -38,12 +38,12 @@ public class SplashActivity extends BaseActivity {
             };
             String[] resultPermissions = PermissionUtil.needCheckPermissions(permissions);
             if (resultPermissions.length == 0) {
-                handleResultAfterInitpermissions();
+                handleResultAfterInitPermissions();
             } else {
                 requestPermissions(resultPermissions, 100);
             }
         } else {
-            handleResultAfterInitpermissions();
+            handleResultAfterInitPermissions();
         }
     }
 
@@ -52,7 +52,7 @@ public class SplashActivity extends BaseActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == 100 && android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
             if (PermissionUtil.passPermissions(grantResults)) {
-                handleResultAfterInitpermissions();
+                handleResultAfterInitPermissions();
             } else {
                 UIUtil.showToastShort(getString(R.string.hint_permission_splash));
                 finish();
@@ -60,7 +60,7 @@ public class SplashActivity extends BaseActivity {
         }
     }
 
-    private void handleResultAfterInitpermissions() {
+    private void handleResultAfterInitPermissions() {
         FileStorageUtil.initAppDir();//初始化应用文件目录
         DeviceInfo.init(this);// 初始化设备信息
         CrashHandler.init(UIUtil.getContext());

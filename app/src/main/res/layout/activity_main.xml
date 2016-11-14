@@ -9,4 +9,9 @@
 
     <include layout="@layout/layout_titlebar"/>
 
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_hotfix"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/test_hotfix"/>
 </LinearLayout>

@@ -39,6 +39,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/GradientActivity"/>
 
+        <!--热修复测试-->
+        <activity
+            android:name=".hello.hotfix.HotFixActivity"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

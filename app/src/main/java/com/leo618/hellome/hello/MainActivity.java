@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.leo618.hellome.R;
 import com.leo618.hellome.hello.bean.AuthorInfoBean;
+import com.leo618.hellome.hello.hotfix.HotFixActivity;
 import com.leo618.hellome.libcore.base.BaseActivity;
 import com.leo618.hellome.libcore.common.URLConstant;
 import com.leo618.hellome.libcore.interf.IRequestCallback;
@@ -40,11 +41,14 @@ public class MainActivity extends BaseActivity {
         mInfo.setImageResource(android.R.drawable.ic_menu_info_details);
     }
 
-    @OnClick({R.id.iv_title_right_1})
+    @OnClick({R.id.iv_title_right_1, R.id.btn_hotfix})
     public void onClickOfButtons(View view) {
         switch (view.getId()) {
             case R.id.iv_title_right_1://show info
                 showAuthorInfo();
+                break;
+            case R.id.btn_hotfix://hotfix test (tinker)
+                startActivity(HotFixActivity.class);
                 break;
         }
     }

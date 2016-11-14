@@ -22,4 +22,8 @@
     <string name="btn_see_detail">查看详情</string>
     <string name="btn_see_more">查看更多</string>
     <string name="btn_close">关&#160;&#160;&#160;&#160;闭</string>
+
+    <string name="test_hotfix">热修复测试</string>
+    <string name="test_hotfix_test">测试</string>
+    <string name="test_hotfix_fix">修复</string>
 </resources>
