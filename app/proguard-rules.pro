@@ -124,4 +124,5 @@
 -keep class com.leo618.hellome.libcore.manager.net.cookie.** { *; }
 
 
+-keepattributes SourceFile,LineNumberTable
 ##################################################################### 项目特殊处理 第三方SDK

@@ -3,10 +3,17 @@ package com.leo618.hellome.libcore;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
+import android.content.res.AssetManager;
+import android.content.res.Resources;
 import android.os.Looper;
 import android.support.multidex.MultiDex;
 
+import com.leo618.hellome.hello.hotfix.TinkerManager;
 import com.leo618.hellome.libcore.manager.net.OkHttpClientWrap;
+import com.tencent.tinker.anno.DefaultLifeCycle;
+import com.tencent.tinker.loader.app.DefaultApplicationLike;
+import com.tencent.tinker.loader.shareutil.ShareConstants;
 
 import java.lang.ref.WeakReference;
 import java.util.Stack;
@@ -17,10 +24,14 @@ import java.util.Stack;
  * <p></p>
  * Created by lzj on 2015/12/31.
  */
-@SuppressWarnings("unused")
-public class MyApp extends Application {
-    private static final String TAG = MyApp.class.getSimpleName();
-    private static MyApp mContext;
+@SuppressWarnings("ALL")
+@DefaultLifeCycle(application = "com.leo618.hellome.libcore.MyApp",
+        flags = ShareConstants.TINKER_ENABLE_ALL,
+        loadVerifyFlag = false)
+public class MyAppLike extends DefaultApplicationLike {
+    private static final String TAG = MyAppLike.class.getSimpleName();
+    private static MyAppLike mMyAppLike;
+    private static Application mContext;
     private static android.os.Handler mMainThreadHandler;
     private static Looper mMainThreadLooper;
     private static Thread mMainThread;
@@ -28,12 +39,25 @@ public class MyApp extends Application {
     /*** 寄存整个应用Activity **/
     private final Stack<WeakReference<Activity>> mActivitys = new Stack<>();
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        mContext = this;
+    public MyAppLike(Application application, int tinkerFlags, boolean tinkerLoadVerifyFlag, long applicationStartElapsedTime, long applicationStartMillisTime, Intent tinkerResultIntent, Resources[] resources, ClassLoader[] classLoader, AssetManager[] assetManager) {
+        super(application, tinkerFlags, tinkerLoadVerifyFlag, applicationStartElapsedTime, applicationStartMillisTime, tinkerResultIntent, resources, classLoader, assetManager);
+    }
 
-        mMainThreadLooper = getMainLooper();
+    @Override
+    public void onBaseContextAttached(Context base) {
+        super.onBaseContextAttached(base);
+        //you must install multiDex whatever tinker is installed!
+        MultiDex.install(base);
+        mMyAppLike = this;
+        // install tinker
+        TinkerManager.sampleInstallTinker(this);
+        //my before logic
+        initMyLogic();
+    }
+
+    private void initMyLogic() {
+        mContext = getApplication();
+        mMainThreadLooper = getApplication().getMainLooper();
         mMainThreadHandler = new android.os.Handler(mMainThreadLooper);
         mMainThread = Thread.currentThread();
         mMainThreadId = android.os.Process.myTid();
@@ -41,12 +65,6 @@ public class MyApp extends Application {
         OkHttpClientWrap.getInstance().initSSLAccess();//初始化Https访问权限
 
         new LoadInitDataTask().execute((Void) null);// 异步加载初始数据
-    }
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(base);
-        MultiDex.install(this);
     }
 
     /** 使用异步加载初始配置数据 */
@@ -62,12 +80,16 @@ public class MyApp extends Application {
         }
     }
 
+    public static MyAppLike getAppLike() {
+        return mMyAppLike;
+    }
+
     /**
      * 获取全局上下文
      *
      * @return the mContext
      */
-    public static MyApp getApplication() {
+    public static Application getApp() {
         return mContext;
     }
 

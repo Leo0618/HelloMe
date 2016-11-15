@@ -22,7 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.leo618.hellome.R;
-import com.leo618.hellome.libcore.MyApp;
+import com.leo618.hellome.libcore.MyAppLike;
 
 
 /**
@@ -35,29 +35,34 @@ public class UIUtil {
 
     private static final String TAG = UIUtil.class.getSimpleName();
 
+    /** 获取全局AppLike */
+    public static MyAppLike getAppLike() {
+        return MyAppLike.getAppLike();
+    }
+
     /** 获取全局上下文 */
     public static Context getContext() {
-        return MyApp.getApplication();
+        return MyAppLike.getApp();
     }
 
     /** 获取主线程 */
     public static Thread getMainThread() {
-        return MyApp.getMainThread();
+        return MyAppLike.getMainThread();
     }
 
     /** 获取主线程ID */
     public static long getMainThreadId() {
-        return MyApp.getMainThreadId();
+        return MyAppLike.getMainThreadId();
     }
 
     /** 获取主线程消息轮询器 */
     public static android.os.Looper getMainLooper() {
-        return MyApp.getMainThreadLooper();
+        return MyAppLike.getMainThreadLooper();
     }
 
     /** 获取主线程的handler */
     public static Handler getHandler() {
-        return MyApp.getMainThreadHandler();
+        return MyAppLike.getMainThreadHandler();
     }
 
     /** 在主线程中延时一定时间执行runnable */

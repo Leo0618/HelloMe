@@ -18,11 +18,12 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
-import com.leo618.hellome.libcore.MyApp;
+import com.leo618.hellome.libcore.MyAppLike;
 import com.leo618.hellome.libcore.common.Const;
 import com.leo618.hellome.libcore.manager.EventManager;
 import com.leo618.hellome.libcore.manager.SystemBarTintManager;
 import com.leo618.hellome.libcore.util.Logg;
+import com.leo618.hellome.libcore.util.UIUtil;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -41,7 +42,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected final String TAG = this.getClass().getSimpleName();
 
     /** 整个应用Applicaiton */
-    private MyApp mApplication;
+    private MyAppLike myAppLike;
     /** 当前Activity的弱引用，防止内存泄露 */
     private WeakReference<Activity> activityWeakReference = null;
     /** 系统状态栏管理类 */
@@ -66,9 +67,9 @@ public abstract class BaseActivity extends AppCompatActivity {
             throw new IllegalArgumentException("must set activity's contentViewResId.");
         }
         setContentView(contentViewResId);
-        mApplication = (MyApp) this.getApplication(); // 获取应用Application
+        myAppLike = UIUtil.getAppLike(); // 获取应用Application
         activityWeakReference = new WeakReference<Activity>(this); // 将当前Activity压入栈
-        mApplication.pushTask(activityWeakReference);
+        myAppLike.pushTask(activityWeakReference);
         EventManager.register(this);//事件注册
         ButterKnife.bind(this);//ButterKnife注入
         this.doBusiness();
@@ -128,8 +129,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         Logg.d(TAG, TAG + "-->onDestroy()");
         EventManager.unregister(this);//事件反注册
         ButterKnife.unbind(this);//ButterKnife注入解绑
-        if (mApplication != null && activityWeakReference != null) {
-            mApplication.removeTask(activityWeakReference);
+        if (myAppLike != null && activityWeakReference != null) {
+            myAppLike.removeTask(activityWeakReference);
         }
         super.onDestroy();
         mDestroyed = true;

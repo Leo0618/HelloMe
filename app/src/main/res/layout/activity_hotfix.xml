@@ -20,6 +20,12 @@
         android:layout_height="wrap_content"
         android:text="@string/test_hotfix_fix"/>
 
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_restart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/test_hotfix_restart"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
