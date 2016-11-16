@@ -102,10 +102,10 @@ dependencies {
 
 def bakPath = file("${buildDir}/apkPatchDir/")
 
-def fileNameComm = "app-debug-1115-10-00-13"
+def fileNameComm = "app-debug-1115-10-44-01"
 
 ext {
-    tinkerEnabled = true
+    tinkerEnabled = false
     tinkerOldApkPath = "${bakPath}/${fileNameComm}.apk"
     tinkerApplyMappingPath = "${bakPath}/${fileNameComm}.txt"
     tinkerApplyResourcePath = "${bakPath}/${fileNameComm}-R.txt"

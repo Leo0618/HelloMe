@@ -7,6 +7,7 @@ an app for some todo task
 
 
 
+----
 ##11/15/2016 10:29:35 AM 
 
 
@@ -31,3 +32,12 @@ an app for some todo task
 - 将`patch_signed_7zip.apk`放入手机SD卡根目录，点击修复，然后进行重启，可以看到bug已经修复，结果应该是这样的：
 
 ![noBug](http://i.imgur.com/AkTDJiS.png)
+
+
+----
+##11/16/2016 3:08:42 PM 
+
+
+######添加自定义View：DoubleStrikeThroughTextView
+一个简单自定义控件，具有多条删除线显示功能的TextView，效果如下：
+![DoubleStrikeThroughTextView](http://i.imgur.com/BYxNqFn.png)
