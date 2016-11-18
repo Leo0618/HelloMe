@@ -39,5 +39,18 @@ an app for some todo task
 
 
 ######添加自定义View：DoubleStrikeThroughTextView
+
 一个简单自定义控件，具有多条删除线显示功能的TextView，效果如下：
+
 ![DoubleStrikeThroughTextView](http://i.imgur.com/BYxNqFn.png)
+
+
+----
+##11/18/2016 9:30:07 AM 
+
+
+######添加红点消息数量提示控件：HintView
+
+其实它不是一个View，O(∩_∩)O哈哈~ 可以用于显示红点消息提示，显示消息数量提示。
+
+

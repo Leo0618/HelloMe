@@ -3,6 +3,7 @@ package com.leo618.hellome.hello;
 import android.app.AlertDialog;
 import android.graphics.Color;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import com.leo618.hellome.R;
 import com.leo618.hellome.hello.bean.AuthorInfoBean;
 import com.leo618.hellome.hello.doubleStrikeThrough.DoubleStrikeThroughTextView;
+import com.leo618.hellome.hello.hintView.HintView;
 import com.leo618.hellome.hello.hotfix.HotFixActivity;
 import com.leo618.hellome.libcore.base.BaseActivity;
 import com.leo618.hellome.libcore.common.URLConstant;
@@ -42,13 +44,32 @@ public class MainActivity extends BaseActivity {
         mTitle.setText(R.string.app_name);
         mInfo.setImageResource(android.R.drawable.ic_menu_info_details);
 
-        DoubleStrikeThroughTextView dst = findView(R.id.dst);
+        // test DoubleStrikeThroughTextView
+        testDoubleStrikeThroughTextView();
+        // test HintView
+        testHintView();
+    }
+
+    private void testDoubleStrikeThroughTextView() {
+        final DoubleStrikeThroughTextView dst = findView(R.id.dst);
         dst
                 .setStrikeThroughNumber(2)
                 .setStrikeThroughHeigth(UIUtil.dip2px(2))
                 .setStrikeThroughSpace(UIUtil.dip2px(5))
                 .setStrikeThroughColor(Color.parseColor("#9E9D9D"))
                 .setText("300", true);
+    }
+
+    private void testHintView() {
+        new HintView()
+                .setHintViewSize(UIUtil.dip2px(15))
+                .setHintViewBgColor(Color.RED)
+                .setHintViewTextSize(UIUtil.dip2px(12))
+                .setHintViewTextColor(Color.WHITE)
+                .setHintViewGravity(Gravity.TOP | Gravity.END)
+                .setHintViewMargin(0, UIUtil.dip2px(10), UIUtil.dip2px(10), 0)
+                .setContent("9+")
+                .hint(mInfo);
     }
 
     @OnClick({R.id.iv_title_right_1, R.id.btn_hotfix})
